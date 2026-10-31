@@ -51,7 +51,7 @@
    | 注意点                      | 内容を確認してチェックを入れる                                         |
    | API を実行する SAM ユーザー | 「既存の SAM ユーザーから選択する」を選択                              |
    | SAM ユーザー                | `FluxAction-SoracomApi-getDataEntries1`                                |
-   - URL は API を選択すると `/v1/data/{resource_type}/{resource_id}` と表示されるので、`{resource_type}` を `Subscriber`、`{resource_id}` を `${event.context.resource.imsi}`（ボタンを押した SIM の IMSI）に書き換え、末尾に `?sort=desc&limit=1`（新しい順に 1 件だけ取得）を付けます。
+   - URL は API を選択すると `/v1/data/{resource_type}/{resource_id}` と表示されるので、`{resource_type}` を `Subscriber`、`{resource_id}` を `${event.context.resource.imsi}`に書き換え、末尾に `?sort=desc&limit=1`（新しい順に 1 件だけ取得）を付けます。(CONFIGのURLの項目をコピペして貼りなおして構いません)
 
    ![SORACOM APIアクション1](./image/03-09.png)
    ![SORACOM APIアクション2](./image/03-10.png)
@@ -61,10 +61,6 @@
    ![SAMユーザーの選択](./image/03-10-2.png)
 
    > ⚠️ Flux アプリを削除すると、アタッチしている SAM ユーザー（`FluxAction-SoracomApi-getDataEntries1`）も一緒に削除されます。削除を避けたい場合は、事前に SAM ユーザーの「認証設定」>「SORACOM リソース認証」を解除しておいてください。
-
-   > ⚠️ IMSIの値はSIM管理の設定より確認できます。
-
-   ![IMSI値の確認](./image/03-11.png)
 
 6. **OUTPUT** を以下のように設定する
    - 「アクションのアウトプットを別のチャネルに送信する」：ON
